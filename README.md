@@ -1,36 +1,47 @@
-# AI-Assisted-Kill-Chain-Emulation-for-Cloud-Container-Security-Validation
-AI-assisted kill-chain emulation framework for validating container, cloud, and detection security controls in authorized lab environments.
-# Mini Autonomous Red Team Brain 🧠🔴  
-**Enterprise-Grade Kill-Chain Emulation & Security Control Validation**
+# 🧠 AI-Assisted Kill-Chain Emulation for Cloud & Container Security
 
-> ⚠️ **LAB / AUTHORIZED ENVIRONMENTS ONLY**  
-> This project is designed for **defensive security validation**, not real-world exploitation.
+> **Autonomous, AI-driven red-team simulation used to validate cloud, container, and SOC detection controls — safely and defensively.**
 
----
-
-## 🧭 Overview
-
-**Mini Autonomous Red Team Brain** is a modular, AI-assisted **kill-chain emulation framework** designed to validate:
-
-- 🔥 Next-generation firewalls  
-- 🛡️ Antivirus / EDR solutions  
-- 🤖 AI-based threat detection systems  
-- ☁️ Cloud & container security controls  
-
-It simulates **real adversary behavior** end-to-end — **without deploying real malware** — enabling safe, repeatable, and auditable security testing before production rollout.
+⚠️ **Authorized / Lab Environments Only**  
+This project emulates attacker *behavior*, not real malware or live exploitation.
 
 ---
 
-## 🎯 What This Tool Does
+## 🎯 What This Project Demonstrates
 
-This platform **emulates attacker behavior**, not weaponized exploits.
+This system shows how **real attackers operate across cloud and container environments**, and how modern defenses should detect them.
 
-Security controls detect **behavior**, not intent — and this framework exercises the same detection paths used by real threats.
+It proves the ability to:
+- Discover exposed cloud/container attack surfaces
+- Autonomously select escalation techniques using AI
+- Execute a controlled kill-chain end-to-end
+- Generate forensic audit logs & learning feedback
+- Validate security controls *before* production
 
-### Simulated Kill Chain Coverage
+**No real malware. No persistence. No data destruction.**
 
-| Kill Chain Phase | Emulated | Real Malware Used |
-|-----------------|----------|-------------------|
+---
+
+## 🧪 End-to-End Demo (Screenshots)
+
+| Phase | Evidence |
+|-----|---------|
+| AI Recon & Target Discovery | `docs/screenshots/01-ai-recon.png` |
+| Dry-Run Validation | `docs/screenshots/02-dry-run.png` |
+| Live Lab Execution | `docs/screenshots/03-lab-live-execution.png` |
+| Container Escape Proof | `docs/screenshots/04-container-escape.png` |
+| Learning Memory | `docs/screenshots/05-learning-memory.png` |
+| Audit Logging | `docs/screenshots/06-audit-logging.png` |
+| Full Kill-Chain | `docs/screenshots/07-end-to-end.png` |
+
+> These screenshots show a **single autonomous run**, from reconnaissance → execution → audit evidence.
+
+---
+
+## 🧭 Simulated Kill-Chain Coverage
+
+| Kill Chain Phase | Emulated | Real Malware |
+|-----------------|----------|--------------|
 | Reconnaissance | ✅ | ❌ |
 | Initial Access | ✅ | ❌ |
 | Execution | ✅ | ❌ |
@@ -40,176 +51,55 @@ Security controls detect **behavior**, not intent — and this framework exercis
 | Persistence (Attempted) | ✅ | ❌ |
 | Exfiltration (Simulated) | ✅ | ❌ |
 
----
-
-## 🧠 Architecture
-
-┌──────────────┐
-│  AI Planner  │  ← Ollama / LLM
-└──────┬───────┘
-│
-▼
-┌────────────────────┐
-│ AI Recon Engine     │
-│ (Shodan / Lab Data) │
-└──────┬─────────────┘
-│
-▼
-┌────────────────────┐
-│ Technique Selector  │
-│ (Risk + Confidence) │
-└──────┬─────────────┘
-│
-▼
-┌────────────────────┐
-│ Kill-Chain Executor │
-│ (Blackcart Runtime) │
-└──────┬─────────────┘
-│
-▼
-┌────────────────────┐
-│ Learning Memory     │
-│ (Outcome Feedback)  │
-└────────────────────┘
+✔ Behavior-accurate  
+✔ Detection-focused  
+✔ Defender-safe  
 
 ---
 
-## 🧪 Techniques Implemented
+## 🧠 System Architecture
 
-### Docker / Container Security
+📄 Detailed architecture: `docs/architecture.md`
 
-- `docker_api_enumerate`  
-  Enumerates containers and images via exposed Docker API
+---
 
-- `docker_run_root`  
-  Executes a container as root (RCE simulation)
+## 🔬 Techniques Implemented
 
-- `docker_mount_host_ro`  
-  Read-only host filesystem mount (escape demonstration)
+### Docker / Containers
+- `docker_api_enumerate` — Unauthenticated Docker API discovery
+- `docker_run_root` — Root-level container execution
+- `docker_mount_host_ro` — Read-only host filesystem escape
 
 ### Kubernetes (Early Stage)
-
-- `kubelet_readonly`  
-  Attempts access to unauthenticated kubelet endpoints
+- `kubelet_readonly` — Unauthenticated kubelet endpoint access
 
 ### Cloud Metadata
-
-- `cloud_metadata_enum`  
-  Queries cloud metadata endpoints for credential exposure testing
+- `cloud_metadata_enum` — Metadata service exposure detection
 
 ---
 
-## 🧬 AI-Driven Decision Logic
+## 🧠 Learning & Audit Capabilities
 
-The AI planner:
-- Selects techniques based on **confidence**
-- Orders them by **escalation level**
-- Stops automatically on failure
-- Records outcomes for future learning
+Each execution records:
+- Technique outcome (success / blocked)
+- Confidence thresholds
+- Risk classification
+- Observable effects
+- Safety controls applied
 
-### Example AI Output
-```json
-{
-  "techniques": [
-    "docker_api_enumerate",
-    "docker_run_root",
-    "docker_mount_host_ro"
-  ]
-}
+Artifacts:
+- `memory/technique_memory.json`
+- `logs/audit_log.jsonl`
+- `docs/reports/Executive_Attack_Report.pdf`
 
-🧠 Learning Memory
+---
 
-Each execution is recorded in:
-memory/technique_memory.json
-Tracked fields:
-	•	Timestamp
-	•	Target
-	•	Technique
-	•	Result (success / failure)
-	•	Confidence threshold
-	•	Risk level
+## 🚀 How to Run (Lab)
 
-This enables:
-	•	Technique prioritization
-	•	Noise reduction
-	•	Adaptive escalation
-	•	Future AI tuning
-
-Tracked fields:
-	•	Timestamp
-	•	Target
-	•	Technique
-	•	Result (success / failure)
-	•	Confidence threshold
-	•	Risk level
-
-This enables:
-	•	Technique prioritization
-	•	Noise reduction
-	•	Adaptive escalation
-	•	Future AI tuning
-
+```bash
 python3 orchestrate.py \
   --goal "Find exposed Docker APIs" \
   --mode lab \
   --auto-approve
 
-2️⃣ Dry Run Only
-
-🔐 Safety Guarantees
-
-✔ No real malware
-✔ No persistence
-✔ No data destruction
-✔ No lateral movement
-✔ No unauthorized targets
-
-All techniques are:
-	•	Behavior-only
-	•	Read-only where possible
-	•	Explicitly marked lab_only
-
-⸻
-
-🧩 Extensibility Roadmap
-
-Planned next phases:
-	•	🔥 C2 behavior emulator (no command execution)
-	•	📡 Network beacon simulation (firewall testing)
-	•	🤖 AV / ML evasion test harness
-	•	☁️ Expanded Kubernetes & cloud APIs
-	•	📊 Auto-generated executive attack reports
-	•	🛡️ Blue-team detection scoring
-
-⸻
-
-🏛️ Compliance & Alignment
-	•	MITRE ATT&CK (behavioral mapping)
-	•	Purple Team methodology
-	•	Zero-trust validation
-	•	SOC & IR workflow testing
-	•	Pre-production security assurance
-
-⸻
-
-⚠️ Legal & Ethical Notice
-
-This framework is intended only for:
-	•	Systems you own
-	•	Systems you are authorized to test
-	•	Internal security validation environments
-
-Unauthorized use against third-party systems is prohibited.
-
-⸻
-
-🧠 Philosophy
-
-“If your security stack can’t stop a harmless simulator, it won’t stop the real thing.”
-
-⸻
-
-Built for defenders.
-Designed like attackers.
-Safe by design.
->>>>>>> ee9ddd4 (Initial release: AI-assisted kill-chain emulation framework)
+python3 execution/run_blackcart.py --dry-run
