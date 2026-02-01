@@ -38,36 +38,6 @@ High-level findings, risk impact, and defensive recommendations
 
 ➡️ docs/reports/Executive_Attack_Report.pdf￼
 
-🧠 **Architecture**
-
-┌──────────────┐
-│  AI Planner  │  ← Ollama / LLM
-└──────┬───────┘
-       │
-       ▼
-┌────────────────────┐
-│ AI Recon Engine     │
-│ (Shodan / Lab Data) │
-└──────┬─────────────┘
-       │
-       ▼
-┌────────────────────┐
-│ Technique Selector  │
-│ (Risk + Confidence) │
-└──────┬─────────────┘
-       │
-       ▼
-┌────────────────────┐
-│ Kill-Chain Executor │
-│ (Blackcart Runtime) │
-└──────┬─────────────┘
-       │
-       ▼
-┌────────────────────┐
-│ Learning Memory     │
-│ + Audit Logging     │
-└────────────────────┘
-
 ## 🧪 End-to-End Demo (Screenshots)
 
 | Phase | Evidence |
