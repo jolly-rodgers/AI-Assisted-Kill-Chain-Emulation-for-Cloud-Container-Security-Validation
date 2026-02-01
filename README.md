@@ -22,6 +22,52 @@ It proves the ability to:
 
 ---
 
+🔗 Key Documentation (Start Here)
+
+These documents are meant to be read by security leadership, blue teams, and auditors:
+
+📄 **Threat Model**
+
+STRIDE-based threat model covering trust boundaries, attack surfaces, and mitigations
+
+➡️ docs/reports/Threat_Model_AI_Assisted_Kill_Chain_Emulation.pdf￼
+
+📊 **Executive Attack Report**
+
+High-level findings, risk impact, and defensive recommendations
+
+➡️ docs/reports/Executive_Attack_Report.pdf￼
+
+🧠 **Architecture**
+
+┌──────────────┐
+│  AI Planner  │  ← Ollama / LLM
+└──────┬───────┘
+       │
+       ▼
+┌────────────────────┐
+│ AI Recon Engine     │
+│ (Shodan / Lab Data) │
+└──────┬─────────────┘
+       │
+       ▼
+┌────────────────────┐
+│ Technique Selector  │
+│ (Risk + Confidence) │
+└──────┬─────────────┘
+       │
+       ▼
+┌────────────────────┐
+│ Kill-Chain Executor │
+│ (Blackcart Runtime) │
+└──────┬─────────────┘
+       │
+       ▼
+┌────────────────────┐
+│ Learning Memory     │
+│ + Audit Logging     │
+└────────────────────┘
+
 ## 🧪 End-to-End Demo (Screenshots)
 
 | Phase | Evidence |
