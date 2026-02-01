@@ -1,0 +1,3 @@
+commands:
+  - docker -H {{target}} ps
+  - docker -H {{target}} images

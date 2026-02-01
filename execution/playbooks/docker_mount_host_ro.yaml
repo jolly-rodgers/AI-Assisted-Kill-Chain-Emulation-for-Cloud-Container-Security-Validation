@@ -1,0 +1,2 @@
+commands:
+  - docker -H {{target}} run --rm -v /:/host:ro alpine ls /host

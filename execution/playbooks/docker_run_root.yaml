@@ -1,0 +1,2 @@
+commands:
+  - docker -H {{target}} run --rm alpine id

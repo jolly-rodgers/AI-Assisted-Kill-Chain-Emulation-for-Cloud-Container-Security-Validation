@@ -1,0 +1,2 @@
+commands:
+  - curl -s http://{{target_host}}:10255/pods

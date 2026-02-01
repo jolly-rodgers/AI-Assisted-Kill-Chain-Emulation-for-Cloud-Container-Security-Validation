@@ -1,0 +1,92 @@
+version: "1.0"
+
+workflow:
+  name: docker_api_validation
+  description: >
+    Read-only validation of exposed Docker APIs identified during recon.
+    No container creation. No mutation.
+
+  tasks:
+    - id: check_version
+      type: http_request
+      description: Get Docker API version
+      method: GET
+      path: "/version"
+      expect_status: 200
+
+    - id: list_containers
+      type: http_request
+      description: List running containers
+      method: GET
+      path: "/containers/json"
+      expect_status: 200
+
+    - id: inspect_info
+      type: http_request
+      description: Get Docker daemon info
+      method: GET
+      path: "/info"
+      expect_status: 200
+
+safety:
+  mode: read_only
+  allow_mutation: false
+  allow_exec: false
+targets:
+  - ip: 102.129.185.28
+    port: 2375
+    protocol: http
+
+
+targets:
+  - ip: 198.13.39.215
+    port: 2375
+    protocol: http
+
+
+targets:
+  - ip: 1.94.203.99
+    port: 2375
+    protocol: http
+
+
+targets:
+  - ip: 102.129.185.27
+    port: 2375
+    protocol: http
+
+
+targets:
+  - ip: 20.251.11.64
+    port: 2375
+    protocol: http
+
+
+targets:
+  - ip: 94.127.211.6
+    port: 2375
+    protocol: http
+
+
+targets:
+  - ip: 13.245.229.79
+    port: 2375
+    protocol: http
+
+
+targets:
+  - ip: 54.203.120.208
+    port: 2375
+    protocol: http
+
+
+targets:
+  - ip: 3.28.45.227
+    port: 2375
+    protocol: http
+
+
+targets:
+  - ip: 119.73.110.203
+    port: 2375
+    protocol: http

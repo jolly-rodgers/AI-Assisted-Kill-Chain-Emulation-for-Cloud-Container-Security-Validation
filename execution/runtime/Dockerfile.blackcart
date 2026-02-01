@@ -1,0 +1,25 @@
+FROM python:3.11-slim
+
+# Install system dependencies + Docker CLI
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    ca-certificates \
+    docker.io \
+ && rm -rf /var/lib/apt/lists/*
+
+# Clone Blackcart repository (tooling reference only)
+WORKDIR /opt
+RUN git clone https://github.com/ErdemOzgen/blackcart.git
+
+# Set working directory
+WORKDIR /opt/blackcart
+
+# Minimal Python dependencies used by helpers
+RUN pip install --no-cache-dir requests pyyaml rich
+
+# LAB RUNTIME ONLY
+# - No SSH
+# - No auto execution
+# - Manual commands only
+ENTRYPOINT ["/bin/bash"]

@@ -1,0 +1,193 @@
+{
+  "ip": "vulnerable-docker-daemon",
+  "port": 2375,
+  "service": "docker",
+  "exposure": "public",
+  "org": "lab",
+  "country": "LAB",
+  "risk_reason": "Lab-only unauthenticated Docker API",
+  "confidence": 1.0,
+  "tags": ["docker", "lab", "unauthenticated"],
+  "source": "lab",
+  "timestamp": "2026-02-01T00:00:00Z"
+},
+{
+  "goal": "Find exposed Docker APIs",
+  "plan": {},
+  "decision": {
+    "decision": "stop",
+    "reason": "Sufficient high-confidence unauthenticated Docker APIs identified"
+  },
+  "results": [
+    {
+      "ip": "102.129.185.28",
+      "port": 2375,
+      "service": "docker",
+      "exposure": "public",
+      "org": "BreezeHost",
+      "country": "US",
+      "risk_reason": "Unauthenticated Docker API exposed on TCP/2375",
+      "confidence": 1.0,
+      "tags": [
+        "docker",
+        "unauthenticated",
+        "container"
+      ],
+      "source": "shodan",
+      "timestamp": "2026-02-01T03:46:14.084047+00:00"
+    },
+    {
+      "ip": "198.13.39.215",
+      "port": 2375,
+      "service": "docker",
+      "exposure": "public",
+      "org": "Vultr Holdings, LLC",
+      "country": "JP",
+      "risk_reason": "Unauthenticated Docker API exposed on TCP/2375",
+      "confidence": 0.7,
+      "tags": [
+        "docker",
+        "unauthenticated",
+        "container"
+      ],
+      "source": "shodan",
+      "timestamp": "2026-02-01T03:46:14.084102+00:00"
+    },
+    {
+      "ip": "1.94.203.99",
+      "port": 2375,
+      "service": "docker",
+      "exposure": "public",
+      "org": "Beijing Teletron Telecom Engineering Co., Ltd.",
+      "country": "CN",
+      "risk_reason": "Unauthenticated Docker API exposed on TCP/2375",
+      "confidence": 0.7,
+      "tags": [
+        "docker",
+        "unauthenticated",
+        "container"
+      ],
+      "source": "shodan",
+      "timestamp": "2026-02-01T03:46:14.084121+00:00"
+    },
+    {
+      "ip": "102.129.185.27",
+      "port": 2375,
+      "service": "docker",
+      "exposure": "public",
+      "org": "BreezeHost",
+      "country": "US",
+      "risk_reason": "Unauthenticated Docker API exposed on TCP/2375",
+      "confidence": 1.0,
+      "tags": [
+        "docker",
+        "unauthenticated",
+        "container"
+      ],
+      "source": "shodan",
+      "timestamp": "2026-02-01T03:46:14.084137+00:00"
+    },
+    {
+      "ip": "20.251.11.64",
+      "port": 2375,
+      "service": "docker",
+      "exposure": "public",
+      "org": "Microsoft Corporation",
+      "country": "NO",
+      "risk_reason": "Unauthenticated Docker API exposed on TCP/2375",
+      "confidence": 0.7,
+      "tags": [
+        "docker",
+        "unauthenticated",
+        "container"
+      ],
+      "source": "shodan",
+      "timestamp": "2026-02-01T03:46:14.084151+00:00"
+    },
+    {
+      "ip": "94.127.211.6",
+      "port": 2375,
+      "service": "docker",
+      "exposure": "public",
+      "org": "Orbit Telecom Technology Co. Ltd",
+      "country": "JO",
+      "risk_reason": "Unauthenticated Docker API exposed on TCP/2375",
+      "confidence": 0.7,
+      "tags": [
+        "docker",
+        "unauthenticated",
+        "container"
+      ],
+      "source": "shodan",
+      "timestamp": "2026-02-01T03:46:14.084168+00:00"
+    },
+    {
+      "ip": "13.245.229.79",
+      "port": 2375,
+      "service": "docker",
+      "exposure": "public",
+      "org": "Amazon Data Services South Africa",
+      "country": "ZA",
+      "risk_reason": "Unauthenticated Docker API exposed on TCP/2375",
+      "confidence": 0.7,
+      "tags": [
+        "docker",
+        "unauthenticated",
+        "container"
+      ],
+      "source": "shodan",
+      "timestamp": "2026-02-01T03:46:14.084184+00:00"
+    },
+    {
+      "ip": "54.203.120.208",
+      "port": 2375,
+      "service": "docker",
+      "exposure": "public",
+      "org": "Amazon.com, Inc.",
+      "country": "US",
+      "risk_reason": "Unauthenticated Docker API exposed on TCP/2375",
+      "confidence": 0.7,
+      "tags": [
+        "docker",
+        "unauthenticated",
+        "container"
+      ],
+      "source": "shodan",
+      "timestamp": "2026-02-01T03:46:14.084196+00:00"
+    },
+    {
+      "ip": "3.28.45.227",
+      "port": 2375,
+      "service": "docker",
+      "exposure": "public",
+      "org": "Amazon Data Services UAE",
+      "country": "AE",
+      "risk_reason": "Unauthenticated Docker API exposed on TCP/2375",
+      "confidence": 0.7,
+      "tags": [
+        "docker",
+        "unauthenticated",
+        "container"
+      ],
+      "source": "shodan",
+      "timestamp": "2026-02-01T03:46:14.084208+00:00"
+    },
+    {
+      "ip": "119.73.110.203",
+      "port": 2375,
+      "service": "docker",
+      "exposure": "public",
+      "org": "LINKdotNET Telecom Limited",
+      "country": "PK",
+      "risk_reason": "Unauthenticated Docker API exposed on TCP/2375",
+      "confidence": 0.7,
+      "tags": [
+        "docker",
+        "unauthenticated",
+        "container"
+      ],
+      "source": "shodan",
+      "timestamp": "2026-02-01T03:46:14.084219+00:00"
+    }
+  ]
+}

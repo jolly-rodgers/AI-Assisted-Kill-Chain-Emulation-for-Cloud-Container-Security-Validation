@@ -1,0 +1,34 @@
+docker_api_enumerate:
+  playbook: docker_api_enumerate.yaml
+  confidence_min: 0.8
+  escalation_level: 1
+  requires: docker
+  risk: MEDIUM
+
+docker_run_root:
+  playbook: docker_run_root.yaml
+  confidence_min: 0.85
+  escalation_level: 2
+  requires: docker
+  risk: HIGH
+
+docker_mount_host_ro:
+  playbook: docker_mount_host_ro.yaml
+  confidence_min: 0.9
+  escalation_level: 3
+  requires: docker
+  risk: CRITICAL
+
+kubelet_readonly:
+  playbook: kubelet_readonly.yaml
+  confidence_min: 0.9
+  escalation_level: 4
+  requires: kubernetes
+  risk: HIGH
+
+cloud_metadata_enum:
+  playbook: cloud_metadata_enum.yaml
+  confidence_min: 0.9
+  escalation_level: 5
+  requires: cloud
+  risk: CRITICAL
