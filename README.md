@@ -28,13 +28,14 @@ These documents are meant to be read by security leadership, blue teams, and aud
 
 📄 **Threat Model**
 
-STRIDE-based threat model covering trust boundaries, attack surfaces, and mitigations
-
+**STRIDE-based threat model covering trust boundaries, attack surfaces, and mitigations
+**
 ➡️ docs/reports/Threat_Model_AI_Assisted_Kill_Chain_Emulation.pdf￼
 
 📊 **Executive Attack Report**
 
-High-level findings, risk impact, and defensive recommendations
+**High-level findings, risk impact, and defensive recommendations
+**
 
 ➡️ docs/reports/Executive_Attack_Report.pdf￼
 
