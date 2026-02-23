@@ -1,95 +1,167 @@
-# 🧠 AI-Assisted Kill-Chain Emulation for Cloud & Container Security
+# 🛡 AI-Assisted Adversary Emulation Platform  
+## Continuous Cloud & Container Security Control Validation
+
+---
 
 ## Executive Summary
 
-This project demonstrates how a modern attacker could move from **exposed cloud or container attack surfaces** to **host-level impact** if security controls or detections fail.
+This project demonstrates a **production-oriented adversary emulation platform** built to continuously validate cloud and container security controls.
 
-It is a **defensive, lab-only system** designed to help security teams **validate controls, uncover detection gaps, and generate actionable evidence** before issues reach production.
+Rather than simulating malware, the system safely emulates real-world attacker behaviors in controlled lab environments to help security teams answer a critical question:
 
-The system emulates **attacker behavior**, not malware.  
-There is **no persistence, no destructive payloads, and no live exploitation**.
+> **If this technique were executed today, would our controls block it — and would our detections respond in time?**
 
-Its purpose is to help organizations answer one question:
+The platform is designed for:
 
-> *If an attacker tried this today, would we block it — and if not, would we know?*
+- Purple Team operations  
+- Detection engineering validation  
+- Pre-production control testing  
+- Continuous security regression testing  
 
----
-
-## ⚠️ Scope & Safety
-
-**Authorized / Lab Environments Only**
-
-- No real malware
-- No data destruction
-- No uncontrolled lateral movement
-- No persistence mechanisms
-
-All techniques are **behavior-accurate but defender-safe**, designed for:
-- Pre-production validation
-- Purple team exercises
-- Detection engineering
-- Control verification
+All techniques are behavior-accurate but defender-safe.  
+There is **no persistence, no destructive payloads, and no uncontrolled exploitation**.
 
 ---
 
-## 🎯 What This Project Demonstrates
+# 🎯 Platform Objectives
 
-This system shows how **real attackers operate across cloud and container environments**, and how modern defenses should respond.
+This system enables security teams to:
 
-It demonstrates the ability to:
+- Continuously validate preventative controls
+- Measure detection coverage and alert latency
+- Identify brittle or signature-dependent detections
+- Generate ATT&CK-mapped validation artifacts
+- Produce SOC-ready audit evidence
+- Automate adversary simulation safely
 
-- Discover exposed cloud and container attack surfaces
-- Autonomously select escalation techniques using AI
-- Execute a controlled kill-chain end-to-end
-- Record forensic-quality audit evidence
-- Validate security controls *before* production
+This is not a red-team exploit toolkit.  
+It is a **security control validation and detection measurement platform**.
 
 ---
 
-## 🧩 Control Validation vs Detection Gaps
+# 🧭 MITRE ATT&CK Mapping
 
-This project explicitly separates **security controls** from **security detections**.
+Each emulated behavior is mapped directly to MITRE ATT&CK techniques to support threat-informed defense.
 
-### Controls Successfully Enforced
+| Technique | ATT&CK ID | Tactic | Control Outcome | Detection Outcome |
+|------------|------------|--------|----------------|------------------|
+| Docker API Enumeration | T1610 | Initial Access | Allowed | Telemetry only |
+| Privileged Container Execution | T1611 | Privilege Escalation | Blocked | Alert Triggered |
+| Cloud Metadata Enumeration | T1552.001 | Credential Access | Allowed | No Alert |
+| Host Mount Attempt | T1611 | Container Escape | Blocked | Telemetry only |
 
-In hardened environments, the system confirms that:
+This structure enables measurable tracking of detection coverage and defensive maturity.
+
+---
+
+# 📊 Detection Validation Metrics
+
+Example validation output:
+
+- **Detection Coverage:** 40%
+- **Alert Latency:** Not Triggered (where applicable)
+- **Telemetry Generated:** Yes
+- **Correlation Triggered:** No
+- **Severity Classification:** Inconsistent
+
+The platform explicitly separates:
+
+- Preventative control success  
+- Telemetry generation  
+- Alert triggering  
+- Correlation logic effectiveness  
+- Detection latency  
+
+This distinction mirrors real-world SOC evaluation challenges.
+
+---
+
+# 🧩 Control Validation vs Detection Gaps
+
+## Controls Successfully Enforced
+
+In hardened environments, the system validates that:
 
 - Privileged container execution is blocked
-- Host filesystem mounts are prevented
-- Cloud metadata access is restricted when protections are enabled
+- Host filesystem mounts are restricted
+- Cloud metadata access is restricted when hardened
+- Unsafe execution paths fail safely
 
-These outcomes demonstrate **effective preventative controls**.
-
----
-
-### Detection Gaps Identified
-
-The project also highlights where **detections lag behind behavior**, including:
-
-- Reconnaissance activity generating logs but no alerts
-- Docker API exposure producing telemetry without correlation
-- Container escape indicators lacking severity classification
-
-These are not failures of technology — they are **signal-to-noise and prioritization problems** commonly seen in real SOCs.
+These outcomes confirm preventative controls function correctly.
 
 ---
 
-### Recommended Improvements
+## Detection Gaps Identified
 
-Based on observed gaps, recommended improvements include:
+The system also highlights where detections lag behind behavior:
 
-- Alerting on Docker API enumeration attempts
-- Correlating container runtime events with host namespace changes
-- Flagging repeated failed escalation attempts as early intrusion signals
+- Reconnaissance activity generates logs but no alerts
+- Docker API exposure produces telemetry without correlation
+- Escalation attempts lack severity classification
+- Multiple failed attempts are not grouped as intrusion signals
 
-The goal is not exploitation — it is **continuous validation that controls and detections work together**.
+These represent **detection engineering opportunities**, not product failures.
 
 ---
 
-## 🧭 Simulated Kill-Chain Coverage
+# 🔄 Continuous Validation Model
+
+This platform is designed to support:
+
+- Scheduled validation runs
+- CI/CD security regression testing
+- Staging environment validation
+- Purple Team campaign simulation
+- Pre-production release gates
+
+In production, this system would:
+
+- Run on recurring schedules
+- Integrate with SIEM pipelines
+- Feed metrics into detection dashboards
+- Create workflow tickets for remediation
+- Measure detection latency and coverage trends over time
+
+---
+
+# 🧠 System Architecture
+
+The platform operates as a controlled orchestration pipeline:
+
+- AI-driven technique selection
+- Safety-checked execution paths
+- Explicit stop conditions and risk thresholds
+- Continuous audit logging
+- Technique memory and learning feedback
+
+📄 Detailed architecture: `docs/architecture.md`
+
+---
+
+# 🔬 Techniques Implemented
+
+## Docker / Containers
+
+- `docker_api_enumerate` — Unauthenticated Docker API discovery
+- `docker_run_root` — Root-level container execution (lab-only)
+- `docker_mount_host_ro` — Read-only host filesystem mount simulation
+
+## Kubernetes (Early Stage)
+
+- `kubelet_readonly` — Unauthenticated kubelet endpoint access
+
+## Cloud Metadata
+
+- `cloud_metadata_enum` — Metadata service exposure detection
+
+All behaviors are simulated safely for detection validation purposes.
+
+---
+
+# 🧪 Kill-Chain Emulation Coverage
 
 | Kill Chain Phase | Emulated | Real Malware |
-|----------------|----------|--------------|
+|------------------|----------|--------------|
 | Reconnaissance | ✅ | ❌ |
 | Initial Access | ✅ | ❌ |
 | Execution | ✅ | ❌ |
@@ -105,87 +177,57 @@ The goal is not exploitation — it is **continuous validation that controls and
 
 ---
 
-## 🧠 System Architecture
+# 📁 Generated Artifacts
 
-The system is built as a **controlled orchestration pipeline**:
-
-- AI-driven technique selection
-- Safety-checked execution paths
-- Continuous audit and learning feedback
-- Explicit stop conditions and confidence thresholds
-
-📄 Detailed architecture: `docs/architecture.md`
-
----
-
-## 🔬 Techniques Implemented
-
-### Docker / Containers
-
-- `docker_api_enumerate` — Unauthenticated Docker API discovery
-- `docker_run_root` — Root-level container execution (lab only)
-- `docker_mount_host_ro` — Read-only host filesystem escape simulation
-
-### Kubernetes (Early Stage)
-
-- `kubelet_readonly` — Unauthenticated kubelet endpoint access
-
-### Cloud Metadata
-
-- `cloud_metadata_enum` — Metadata service exposure detection
-
----
-
-## 🧠 Learning & Audit Capabilities
-
-Each execution records:
-
-- Technique outcome (success / blocked)
-- Confidence thresholds
-- Risk classification
-- Observable side effects
-- Safety controls applied
-
-Generated artifacts include:
+Each execution produces:
 
 - `memory/technique_memory.json`
 - `logs/audit_log.jsonl`
 - `docs/reports/Executive_Attack_Report.pdf`
 
-These artifacts are designed for **SOC review, incident response, and audit evidence**.
+Artifacts are designed for:
+
+- SOC review
+- Detection engineering tuning
+- Purple Team reporting
+- Audit documentation
+- Executive security summaries
 
 ---
 
-## 🧪 End-to-End Demo Evidence
+# 📸 Demonstration Evidence
 
-A single autonomous run is documented via screenshots:
+An end-to-end validation run includes:
 
 | Phase | Evidence |
-|-----|---------|
+|--------|---------|
 | AI Recon & Target Discovery | `docs/screenshots/01-ai-recon.png` |
 | Dry-Run Validation | `docs/screenshots/02-dry-run.png` |
 | Live Lab Execution | `docs/screenshots/03-lab-live-execution.png` |
-| Container Escape Proof | `docs/screenshots/04-container-escape.png` |
-| Learning Memory | `docs/screenshots/05-learning-memory.png` |
+| Container Escape Simulation | `docs/screenshots/04-container-escape.png` |
+| Technique Learning Memory | `docs/screenshots/05-learning-memory.png` |
 | Audit Logging | `docs/screenshots/06-audit-logging.png` |
-| Full Kill-Chain | `docs/screenshots/07-end-to-end.png` |
+| Full Kill-Chain Overview | `docs/screenshots/07-end-to-end.png` |
 
 ---
 
-## How This Would Be Used in Production
+# ⚠️ Scope & Safety
 
-In a real organization, this system would be:
+**Authorized / Lab Environments Only**
 
-- Run in staging and pre-production environments
-- Triggered during security validation or purple-team exercises
-- Integrated with SIEM and alerting pipelines
-- Used to continuously test assumptions about cloud and container security
+- No real malware
+- No destructive payloads
+- No uncontrolled lateral movement
+- No persistence mechanisms
+- Explicit execution guardrails
 
-This approach helps teams discover **unknown unknowns** before attackers do.
+This platform is designed exclusively for defensive validation.
 
 ---
 
-## 🚀 Running the Lab (Example)
+# 🚀 Running the Lab
+
+Example execution:
 
 ```bash
 python3 orchestrate.py \
@@ -194,3 +236,14 @@ python3 orchestrate.py \
   --auto-approve
 
 python3 execution/run_blackcart.py --dry-run
+```
+
+---
+
+# 🏁 Intended Outcome
+
+This project demonstrates how organizations can move beyond one-time penetration tests toward:
+
+> **Continuous, measurable, automated adversary validation of cloud and container defenses.**
+
+It operationalizes purple team principles into a repeatable validation platform aligned with MITRE ATT&CK and threat-informed defense methodologies.
